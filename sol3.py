@@ -1,4 +1,4 @@
-rom struct import pack
+from struct import pack
 from shellcode import shellcode
 
 #print("A"*2052)
