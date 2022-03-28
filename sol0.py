@@ -1,4 +1,8 @@
 import sys
 
-uniquename = "marymx"
-sys.stdout.buffer.write(uniquename,b"\x61\x62\x63","A+")
+uniquename = b"marym"
+grade = "A+"
+n =  len(uniquename)
+
+
+sys.stdout.buffer.write(b"marymx" +b"\x00"*4+ b"A+" )
